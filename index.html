@@ -1,0 +1,134 @@
+<!-- Protótipo HTML ajustado para que os inputs não ultrapassem o container -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protótipo - Gerenciamento de Doações</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #2a5d9f;
+      font-size: 1.4rem;
+    }
+    label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      color: #333;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      max-width: 100%;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background-color: #2a5d9f;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button.outline {
+      background: none;
+      color: #2a5d9f;
+      border: 1px solid #2a5d9f;
+    }
+    .preview {
+      height: 150px;
+      background: #eef1f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      color: #555;
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Registrar Doação -->
+  <div class="card">
+    <h2>Registrar Doação</h2>
+    <label>Tipo de Doação</label>
+    <select>
+      <option disabled selected>Selecione...</option>
+      <option>Alimento</option>
+      <option>Dinheiro</option>
+      <option>Outro</option>
+    </select>
+    <label>Descrição</label>
+    <textarea placeholder="Informe detalhes da doação"></textarea>
+    <label>Quantidade / Valor</label>
+    <input type="number" placeholder="Digite o valor ou quantidade">
+    <label>Nome ou CNPJ do Doador</label>
+    <input type="text" placeholder="Ex.: Maria da Silva ou 12.345.678/0001-99">
+    <button>Confirmar</button>
+    <button class="outline">Cancelar</button>
+  </div>
+
+  <!-- Cadastrar Família -->
+  <div class="card">
+    <h2>Cadastrar Família</h2>
+    <label>Nome da Família</label>
+    <input type="text" placeholder="Digite o nome da família">
+    <label>Endereço Completo</label>
+    <input type="text" placeholder="Rua, número, bairro, cidade">
+    <label>Número de Membros</label>
+    <input type="number" placeholder="Informe o número de pessoas">
+    <label>Renda Mensal</label>
+    <input type="number" placeholder="Informe a renda">
+    <label>Observações adicionais</label>
+    <textarea placeholder="Informações relevantes sobre a família"></textarea>
+    <button>Salvar Família</button>
+  </div>
+
+  <!-- Gerar Relatório -->
+  <div class="card">
+    <h2>Gerar Relatório</h2>
+    <label>Período</label>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <input type="date" style="flex:1; min-width:140px;">
+      <input type="date" style="flex:1; min-width:140px;">
+    </div>
+    <label><input type="checkbox" style="width:auto; margin-right:0.5rem;"> Incluir Doações</label>
+    <div class="preview">Área de pré-visualização: aqui será exibido o gráfico ou tabela gerada</div>
+    <button>Gerar</button>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <button class="outline" style="flex: 1; min-width:140px;">Exportar PDF</button>
+      <button class="outline" style="flex: 1; min-width:140px;">Exportar Excel</button>
+    </div>
+  </div>
+</body>
+</html>
